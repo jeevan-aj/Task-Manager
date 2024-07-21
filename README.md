@@ -37,3 +37,7 @@ docker-compose up --build
 
 **Deployed frontend and backend  using Docker**
 
+
+https://github.com/user-attachments/assets/ef289d6c-c87f-4d03-8255-3d2a8fa30318
+
+
