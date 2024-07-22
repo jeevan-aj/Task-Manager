@@ -1,7 +1,7 @@
 
 # Task Manager
 
-This repository contains the code for a real-time task management application. The project is divided into a frontend built with React and Material-UI, and a backend built with NestJS, Kafka, and Redis. The application allows users to create, update, delete, and view tasks organized in a Kanban board.
+This repository contains the code for a real-time task management application. The project is divided into a frontend built with Nextjs and Material-UI, and a backend built with NestJS, Kafka, and Redis. The application allows users to create, update, delete, and view tasks organized in a Kanban board.
 
 
 
