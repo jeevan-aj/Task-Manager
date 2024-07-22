@@ -10,7 +10,7 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
-        brokers: ['kafka:9092'],
+        brokers: [process.env.KAFKA_BROKER || 'kafka:29092'], // Change this to 29092
       },
       consumer: {
         groupId: 'task-management-consumer',
