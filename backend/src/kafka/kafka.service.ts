@@ -10,7 +10,7 @@ export class KafkaService implements OnModuleInit {
   constructor() {
     this.kafka = new Kafka({
       clientId: 'task-management-app',
-      brokers: ['kafka:9092'],
+      brokers: ['kafka:29092'],
     });
     this.producer = this.kafka.producer();
     this.consumer = this.kafka.consumer({ groupId: 'task-management-group' });

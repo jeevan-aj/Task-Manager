@@ -1,5 +1,4 @@
-
-version: "3.8" 
+version: "3.8"
 services:
   frontend:
     build: ./frontend
@@ -25,7 +24,6 @@ services:
       REDIS_PORT: 6379
     networks:
       - app-network
-
 
   redis:
     image: redis:alpine
@@ -60,3 +58,69 @@ services:
 networks:
   app-network:
     driver: bridge
+
+# version: "3.8"
+# services:
+#   backend:
+#     build: ./backend
+#     depends_on:
+#       kafka:
+#         condition: service_healthy
+#     environment:
+#       KAFKA_BROKER: kafka:29092
+#     networks:
+#       - app-network
+
+#   kafka:
+#     image: confluentinc/cp-kafka:7.3.0
+#     ports:
+#       - "29092:29092"
+#     environment:
+#       KAFKA_BROKER_ID: 1
+#       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+#       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092
+#       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092
+#       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+#       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+#       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+#     depends_on:
+#       zookeeper:
+#         condition: service_healthy
+#     networks:
+#       - app-network
+#     healthcheck:
+#       test:
+#         ["CMD-SHELL", "kafka-topics --bootstrap-server localhost:29092 --list"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+
+#   zookeeper:
+#     image: arm64v8/zookeeper:3.8
+#     ports:
+#       - "2181:2181"
+#     networks:
+#       - app-network
+#     healthcheck:
+#       test: ["CMD-SHELL", "echo ruok | nc localhost 2181 | grep imok"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+
+#   redis:
+#     image: redis:alpine
+#     ports:
+#       - "6379:6379"
+#     networks:
+#       - app-network
+
+#   frontend:
+#     build: ./frontend
+#     ports:
+#       - "3000:3000"
+#     networks:
+#       - app-network
+
+# networks:
+#   app-network:
+#     driver: bridge
